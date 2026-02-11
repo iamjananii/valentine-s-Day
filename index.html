@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -89,11 +90,20 @@ animation:float 6s linear infinite;
 0%{transform:translateY(0);}
 100%{transform:translateY(-100vh);}
 }
+.heart{
+position:fixed;
+bottom:-20px;
+font-size:20px;
+animation:float 6s linear infinite;
+z-index:9999;   /* ⭐ IMPORTANT */
+pointer-events:none;
+}
 </style>
 </head>
 
 <body>
-  
+  <div id="app">
+  <div id="hearts">
   <img
   src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWIyeWxkdGVncmo5YWR3ZmdtNXk2Y2h4eXQ5ZXdxa2FlNWo4NHJxMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yZ7Xya4covzN1WhOAa/giphy.gif" src="love.gif" style="position: fixed;
 top: 15%;
@@ -111,7 +121,7 @@ width: 250px;">
 <button id="yesBtn">Yes 😍</button>
 <button id="noBtn">No 🙄</button>
 </div>
-       
+</div></div>
 
 <script>
 /* NO button move */
@@ -127,7 +137,7 @@ noBtn.style.top=Math.random()*(window.innerHeight-100)+"px";
 
 /* YES CLICK */
 document.getElementById("yesBtn").onclick=function(){
-document.getElementBy("app").innerHTML=`
+document.getElementById("app").innerHTML=`
 <div style="height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
 <h1>I Love Youuu My Husband 😘❤️‍🔥💛 <br> Always & Forever🫂😘🌏</h1>
 <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHlyZmpuZDQ5bW0yOGRrNjN3c29zNmR1cWtlOXJsdDUxdXUzbzNxNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qFmdpUKAFZ6rMobzzu/giphy.gif" width="250">
@@ -138,13 +148,13 @@ document.getElementById("nextBtn").onclick=showLetter;
 
 /* LOVE LETTER */
 function showLetter(){
-document.body.innerHTML=`
+document.getElementById("app").innerHTML=`
 <div style="background:white;height:100vh;display:flex;justify-content:center;align-items:center;">
 <div class="scroll">
     
-<h2>Happy Valentine’s Day🥰</h2>
+<h2>Happy Valentine’s Week🥰</h2>
 <p>My Dear Purushaneyyyy😘</p>
-<p>You are My Everything...😍 I Love you as Always🫂💋 
+<p font-family:"cursive";>You are My Everything...😍 I Love you as Always🫂💋 
                      I will be there for you in each and every moment of your lifeee...Whatever happens life just let it go but don't ever forget that your wife I am here to Love you Listen you in every situation👀💋🥰
                      Yeppovum happy ahh iru and one thing siricha nee romba romba rombaaaa alaga iruppa🌏😍🥰😘
                      Always keep Smiling My Husband jiii...🥰😘🌏
@@ -162,7 +172,7 @@ document.getElementById("nextGift").onclick=giftPage;
 
 /* GIFT PAGE */
 function giftPage(){
-document.body.innerHTML=`
+document.getElementById("app").innerHTML=`
 <div class="gifts" id="giftBox" style="height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
 <h1>🎁 Choose Your Gift My Love 🎁</h1>
 <div class="gifts">
@@ -206,7 +216,7 @@ content=`<h1>💍 Be Mine Forever</h1>
 
 
 
-document.body.innerHTML=`
+document.getElementById("app").innerHTML=`
 <div style="background:#111;color:white;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
 ${content}
 
@@ -233,7 +243,9 @@ showGift();
 let startX = 0;
 let endX = 0;
 
-const giftBox = document.getElementById("giftBox");
+document.addEventListener("touchstart", function(e){
+if(!document.getElementById("giftBox")) return;
+});
 
 giftBox.addEventListener("touchstart", e => {
   startX = e.touches[0].clientX;
@@ -254,15 +266,15 @@ giftBox.addEventListener("touchend", e => {
 
 /* Hearts Animation */
 setInterval(()=>{
+  
 const h=document.createElement("div");
 h.className="heart";
 h.innerHTML="❤️";
 h.style.left=Math.random()*100+"vw";
-document.body.appendChild(h);
+document.getElementById("hearts").appendChild(h);
 setTimeout(()=>h.remove(),6000);
 },400);
 </script>
 
 </body>
 </html>
-
