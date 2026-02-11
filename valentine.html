@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will You Be My Valentine?</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+
+body{
+background:linear-gradient(135deg,#ff4e78,#ff9a9e);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+overflow-x:hidden;
+}
+
+.container{
+background:rgba(255,255,255,0.15);
+padding:20px;
+border-radius:20px;
+box-shadow:0 0 20px rgba(0,0,0,0.3);
+backdrop-filter:blur(10px);
+width:90%;
+max-width:400px;
+}
+
+h1{font-size:22px;margin-bottom:15px;font-family:cursive;}
+
+button{
+width:80%;
+padding:16px;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+font-size:15px;
+border:none;
+border-radius:30px;
+margin:6px 0;
+cursor:pointer;
+
+}
+button:hover{
+    background: #ff4e78;
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
+#yesBtn{background:yellow;color:black;font-weight:bold;}
+#noBtn{background:red;color:white;}
+
+.scroll{
+width:100%;
+background:#fff8dc;
+padding:20px;
+border-radius:20px;
+color:#5b0000;
+font-size:16px;
+line-height:1.6;
+}
+
+.gifts{
+display:flex;
+gap:15px;
+margin-top:20px;
+}
+.gift{
+font-size:60px;
+cursor:pointer;
+}
+
+
+@keyframes roll{
+    from{transform:scaleY(0);}
+    to{transform:scaleY(1);}
+}
+
+
+/* Hearts */
+.heart{
+position:fixed;
+bottom:-20px;
+font-size:18px;
+animation:float 6s linear infinite;
+}
+@keyframes float{
+0%{transform:translateY(0);}
+100%{transform:translateY(-100vh);}
+}
+</style>
+</head>
+
+<body>
+  <img
+  src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWIyeWxkdGVncmo5YWR3ZmdtNXk2Y2h4eXQ5ZXdxa2FlNWo4NHJxMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yZ7Xya4covzN1WhOAa/giphy.gif" src="love.gif" style="position: fixed;
+top: 15%;
+bottom: 5%;
+right: 20%;
+left: 50%;
+ 
+transform: translate(-50%, -35%);
+width: 250px;">
+
+
+
+<div class="container">
+<h1>💖 Will you be my Valentine? 💖</h1>
+<button id="yesBtn">Yes 😍</button>
+<button id="noBtn">No 🙄</button>
+</div>
+
+<script>
+/* NO button move */
+const noBtn=document.getElementById("noBtn");
+noBtn.addEventListener("mouseover",moveNo);
+noBtn.addEventListener("touchstart",moveNo);
+
+function moveNo(){
+noBtn.style.position="fixed";
+noBtn.style.left=Math.random()*(window.innerWidth-100)+"px";
+noBtn.style.top=Math.random()*(window.innerHeight-100)+"px";
+}
+
+/* YES CLICK */
+document.getElementById("yesBtn").onclick=function(){
+document.body.innerHTML=`
+<div style="height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
+<h1>I Love Youuu My Husband 😘❤️‍🔥💛 <br> Always & Forever🫂😘🌏</h1>
+<img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHlyZmpuZDQ5bW0yOGRrNjN3c29zNmR1cWtlOXJsdDUxdXUzbzNxNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qFmdpUKAFZ6rMobzzu/giphy.gif" width="250">
+<button id="nextBtn" width:20px;>Next 💌</button>
+</div>`;
+document.getElementById("nextBtn").onclick=showLetter;
+};
+
+/* LOVE LETTER */
+function showLetter(){
+document.body.innerHTML=`
+<div style="background:white;height:100vh;display:flex;justify-content:center;align-items:center;">
+<div class="scroll">
+    
+<h2>Happy Valentine’s My Love 🥰</h2>
+<p>My Dear Purushaneyyyy😘</p>
+<p>You are My Everything...😍 I Love you as Always🫂💋 
+                     I will be there for you in each and every moment of your lifeee...Whatever happens life just let it go but don't ever forget that your wife I am here to Love you Listen you in every situation👀💋🥰
+                     Yeppovum happy ahh iru and one thing siricha nee romba romba rombaaaa alaga iruppa🌏😍🥰😘
+                     Always keep Smiling My Husband jiii...🥰😘🌏
+                     Neraiya time unna na hurt panni irukke sorry da🤌🫂venum neyy la pannala I know you but appo appo konjam loosu maari behave pannirae but athukku kaaranam Un mela irkka Love and Care than Thangooooo😽🥰😘
+                     Unna yeppovum nalla paththuppa da🌎❤️‍🔥💛
+                     Unkuda life long Santhosama Vaazhanum....🫂❤️‍🔥💛
+                      
+                </p>
+<p>Forever yours,<br>Your Pondatiiiii 💋🫂❤️‍🔥💛</p>
+<button id="nextGift">For You 🎁</button>
+</div>
+</div>`;
+document.getElementById("nextGift").onclick=giftPage;
+}
+
+/* GIFT PAGE */
+function giftPage(){
+document.body.innerHTML=`
+<div class="gifts" id="giftBox" style="height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
+<h1>🎁 Choose Your Gift My Love 🎁</h1>
+<div class="gifts">
+<div class="gift" onclick="openGift(1)">🎁</div>
+<div class="gift" onclick="openGift(2)">🎁</div>
+<div class="gift" onclick="openGift(3)">🎁</div>
+
+</div>
+</div>`;
+}
+
+/* GIFT SLIDER SYSTEM */
+let currentGift=1;
+
+function openGift(num){
+currentGift=num;
+showGift();
+}
+
+function showGift(){
+let content="";
+
+
+if(currentGift==1){
+content=`<h1>🤗 Virtual Hug</h1>
+<img src="https://media.giphy.com/media/l2QDM9Jnim1YVILXa/giphy.gif" width="250">
+<p>I miss you ❤️</p>`;
+}
+
+if(currentGift==2){
+content=`<h1>💋 Kiss For Youuuuuuu 😘🌏</h1>
+<img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmJ6cDl6ZTM4NDYxb2w3ejBreGl6MGthaHZpb3ZsdDNndWlwZzJvNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ytu2GUYbvhz7zShGwS/giphy.gif" width="250">
+<p>Ummmaaaaa 💋💋💋💋😘</p>`;
+}
+
+if(currentGift==3){
+content=`<h1>💍 Be Mine Forever</h1>
+<img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDRhNXNtdTgwMWI1N3lvcWplcjZuOWFvamM1cHF4dnJzYTl6cnd4ayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sj93cJMsnoQJkqdgYD/giphy.gif" width="250">
+<p>You are my future husband 💑</p>`;
+}
+
+
+
+document.body.innerHTML=`
+<div style="background:#111;color:white;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
+${content}
+
+<div style="margin-top:15px;">
+<button onclick="prevGift()">⬅ Previous</button>
+<button onclick="nextGift()">Next ➡</button>
+</div>
+
+<button onclick="giftPage()" style="margin-top:15px;">🏠 Back to Gifts</button>
+</div>`;
+}
+
+function nextGift(){
+currentGift++;
+if(currentGift>4)currentGift=1;
+showGift();
+}
+
+function prevGift(){
+currentGift--;
+if(currentGift<1)currentGift=4;
+showGift();
+}
+let startX = 0;
+let endX = 0;
+
+const giftBox = document.getElementById("giftBox");
+
+giftBox.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+
+giftBox.addEventListener("touchend", e => {
+  endX = e.changedTouches[0].clientX;
+
+  if (startX - endX > 50) currentGift++;
+  if (endX - startX > 50) currentGift--;
+
+  if (currentGift < 1) currentGift = 3;
+  if (currentGift > 3) currentGift = 1;
+
+  showGift();
+});
+
+
+/* Hearts Animation */
+setInterval(()=>{
+const h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"vw";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),6000);
+},400);
+</script>
+
+</body>
+</html>
