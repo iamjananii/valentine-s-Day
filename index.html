@@ -93,6 +93,8 @@ animation:float 6s linear infinite;
 </head>
 
 <body>
+    <div id="app">
+        <div id="hearts">
   <img
   src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWIyeWxkdGVncmo5YWR3ZmdtNXk2Y2h4eXQ5ZXdxa2FlNWo4NHJxMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yZ7Xya4covzN1WhOAa/giphy.gif" src="love.gif" style="position: fixed;
 top: 15%;
@@ -110,6 +112,8 @@ width: 250px;">
 <button id="yesBtn">Yes 😍</button>
 <button id="noBtn">No 🙄</button>
 </div>
+        </div>
+    </div>
 
 <script>
 /* NO button move */
@@ -125,7 +129,7 @@ noBtn.style.top=Math.random()*(window.innerHeight-100)+"px";
 
 /* YES CLICK */
 document.getElementById("yesBtn").onclick=function(){
-document.body.innerHTML=`
+document.getElementBy("app").innerHTML=`
 <div style="height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
 <h1>I Love Youuu My Husband 😘❤️‍🔥💛 <br> Always & Forever🫂😘🌏</h1>
 <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHlyZmpuZDQ5bW0yOGRrNjN3c29zNmR1cWtlOXJsdDUxdXUzbzNxNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qFmdpUKAFZ6rMobzzu/giphy.gif" width="250">
@@ -136,11 +140,11 @@ document.getElementById("nextBtn").onclick=showLetter;
 
 /* LOVE LETTER */
 function showLetter(){
-document.body.innerHTML=`
+document.getElementBy("app").innerHTML=`
 <div style="background:white;height:100vh;display:flex;justify-content:center;align-items:center;">
 <div class="scroll">
     
-<h2>Happy Valentine’s My Love 🥰</h2>
+<h2>Happy Valentine’s Day🥰</h2>
 <p>My Dear Purushaneyyyy😘</p>
 <p>You are My Everything...😍 I Love you as Always🫂💋 
                      I will be there for you in each and every moment of your lifeee...Whatever happens life just let it go but don't ever forget that your wife I am here to Love you Listen you in every situation👀💋🥰
@@ -160,7 +164,7 @@ document.getElementById("nextGift").onclick=giftPage;
 
 /* GIFT PAGE */
 function giftPage(){
-document.body.innerHTML=`
+document.getElementBy("app").innerHTML=`
 <div class="gifts" id="giftBox" style="height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
 <h1>🎁 Choose Your Gift My Love 🎁</h1>
 <div class="gifts">
@@ -204,7 +208,7 @@ content=`<h1>💍 Be Mine Forever</h1>
 
 
 
-document.body.innerHTML=`
+document.getElementBy("app").innerHTML=`
 <div style="background:#111;color:white;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
 ${content}
 
@@ -263,3 +267,4 @@ setTimeout(()=>h.remove(),6000);
 
 </body>
 </html>
+
