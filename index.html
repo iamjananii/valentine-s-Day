@@ -93,8 +93,7 @@ animation:float 6s linear infinite;
 </head>
 
 <body>
-    <div id="app">
-        <div id="hearts">
+  
   <img
   src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWIyeWxkdGVncmo5YWR3ZmdtNXk2Y2h4eXQ5ZXdxa2FlNWo4NHJxMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yZ7Xya4covzN1WhOAa/giphy.gif" src="love.gif" style="position: fixed;
 top: 15%;
@@ -112,8 +111,7 @@ width: 250px;">
 <button id="yesBtn">Yes 😍</button>
 <button id="noBtn">No 🙄</button>
 </div>
-        </div>
-    </div>
+       
 
 <script>
 /* NO button move */
@@ -140,7 +138,7 @@ document.getElementById("nextBtn").onclick=showLetter;
 
 /* LOVE LETTER */
 function showLetter(){
-document.getElementBy("app").innerHTML=`
+document.body.innerHTML=`
 <div style="background:white;height:100vh;display:flex;justify-content:center;align-items:center;">
 <div class="scroll">
     
@@ -164,7 +162,7 @@ document.getElementById("nextGift").onclick=giftPage;
 
 /* GIFT PAGE */
 function giftPage(){
-document.getElementBy("app").innerHTML=`
+document.body.innerHTML=`
 <div class="gifts" id="giftBox" style="height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
 <h1>🎁 Choose Your Gift My Love 🎁</h1>
 <div class="gifts">
@@ -208,7 +206,7 @@ content=`<h1>💍 Be Mine Forever</h1>
 
 
 
-document.getElementBy("app").innerHTML=`
+document.body.innerHTML=`
 <div style="background:#111;color:white;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
 ${content}
 
